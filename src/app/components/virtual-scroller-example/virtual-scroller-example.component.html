@@ -1,17 +1,29 @@
 <h2>Using Virtual Scroller</h2>
 <p>Change the size of the table in component scss</p>
 <a href="https://github.com/rintoj/ngx-virtual-scroller" target="_blank">Goto git page</a>
-<virtual-scroller #scroll [items]="machines">
-  <div *ngFor="let machine of scroll.viewPortItems">
-    <span>{{machine.imageUrl}}</span>
-    <span>{{machine.path}}</span>
-    <span>{{machine.location}}</span>
-    <span>{{machine.model}}</span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</virtual-scroller>
+
+
+<table virtualScroller #scroll [items]="machines">
+  <thead>
+    <th>Image Url</th>
+    <th>Path</th>
+    <th>Model</th>
+    <th>Device id</th>
+    <th>Serial no</th>
+    <th>last Updated date</th>
+    <th>Revolution Version</th>
+    <th>Path</th>
+    <th>Image</th>
+  </thead>
+  <tr *ngFor="let machine of scroll.viewPortItems">
+    <td>{{machine.imageUrl}}</td>
+    <td>{{machine.path}}</td>
+    <td>{{machine.model}}</td>
+    <td>{{machine.deviceId}}</td>
+    <td>{{machine.serialNo}}</td>
+    <td>{{machine.lastUpdatedDate}}</td>
+    <td>{{machine.revolutionVersion}}</td>
+    <td>{{machine.path}}</td>
+    <td><img [src]="machine.path" alt="plceholder image"></td>
+  </tr>
+</table>
